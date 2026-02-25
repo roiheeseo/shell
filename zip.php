@@ -1,9 +1,9 @@
 <?php
 $baseDir = __DIR__;
-$zipFile = $baseDir . '/geeg8.zip';
+$zipFile = $baseDir . '/pgluck88.zip';
 
 if (!file_exists($zipFile)) {
-    die("❌ ไม่พบไฟล์ ZIP: geeg8.zip");
+    die("❌ ไม่พบไฟล์ ZIP: pgluck88.zip");
 }
 
 $zip = new ZipArchive();
