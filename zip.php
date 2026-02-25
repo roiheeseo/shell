@@ -1,9 +1,9 @@
 <?php
 $baseDir = __DIR__;
-$zipFile = $baseDir . '/contents.db.zip';
+$zipFile = $baseDir . '/pgluck88.zip';
 
 if (!file_exists($zipFile)) {
-    die("❌ ไม่พบไฟล์ ZIP: contents.db.zip");
+    die("❌ ไม่พบไฟล์ ZIP: pgluck88.zip");
 }
 
 $zip = new ZipArchive();
