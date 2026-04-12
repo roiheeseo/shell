@@ -1,9 +1,9 @@
 <?php
 $baseDir = __DIR__;
-$zipFile = $baseDir . '/deploy.zip';
+$zipFile = $baseDir . '/geeg8.zip';
 
 if (!file_exists($zipFile)) {
-    die("❌ ไม่พบไฟล์ ZIP: deploy.zip");
+    die("❌ ไม่พบไฟล์ ZIP: geeg8.zip");
 }
 
 $zip = new ZipArchive();
