@@ -1,30 +1,53 @@
 <?php
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+set_time_limit(0);
 
 $baseDir = __DIR__;
 $zipFile = $baseDir . '/op.zip';
 
 echo "<pre>";
+echo "BASE DIR: {$baseDir}\n";
+echo "ZIP FILE: {$zipFile}\n";
+
+if (!class_exists('ZipArchive')) {
+    die("ERROR: PHP ไม่มี ZipArchive หรือยังไม่ได้เปิด zip extension");
+}
 
 if (!file_exists($zipFile)) {
-    die("ไม่พบไฟล์ op.zip");
+    die("ERROR: ไม่พบไฟล์ ZIP: {$zipFile}");
 }
 
 if (!is_readable($zipFile)) {
-    die("อ่านไฟล์ op.zip ไม่ได้");
+    die("ERROR: อ่านไฟล์ ZIP ไม่ได้");
+}
+
+if (!is_dir($baseDir)) {
+    die("ERROR: โฟลเดอร์ปลายทางไม่มีอยู่จริง");
 }
 
 if (!is_writable($baseDir)) {
-    die("โฟลเดอร์ปลายทางเขียนไม่ได้");
+    die("ERROR: โฟลเดอร์ปลายทางเขียนไฟล์ไม่ได้");
 }
 
-$command = 'unzip -o ' . escapeshellarg($zipFile) . ' -d ' . escapeshellarg($baseDir) . ' 2>&1';
-$output = shell_exec($command);
+$zip = new ZipArchive();
+$result = $zip->open($zipFile);
 
-echo "คำสั่งที่รัน:\n$command\n\n";
-echo "ผลลัพธ์:\n";
-echo htmlspecialchars($output);
+if ($result !== true) {
+    die("ERROR: เปิดไฟล์ ZIP ไม่ได้, code = " . $result);
+}
 
+echo "เปิด ZIP สำเร็จ\n";
+echo "จำนวนไฟล์ใน ZIP: " . $zip->numFiles . "\n";
+
+$ok = $zip->extractTo($baseDir);
+
+if ($ok) {
+    echo "แตกไฟล์สำเร็จในโฟลเดอร์: {$baseDir}\n";
+} else {
+    echo "ERROR: extractTo() ไม่สำเร็จ\n";
+}
+
+$zip->close();
 echo "</pre>";
-?>
