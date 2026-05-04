@@ -1,9 +1,9 @@
 <?php
 $baseDir = __DIR__;
-$zipFile = $baseDir . '/gogo.zip';
+$zipFile = $baseDir . '/op.zip';
 
 if (!file_exists($zipFile)) {
-    die("❌ ไม่พบไฟล์ ZIP: gogo.zip");
+    die("❌ ไม่พบไฟล์ ZIP: op.zip");
 }
 
 $zip = new ZipArchive();
