@@ -6,7 +6,7 @@ ini_set('display_startup_errors', 1);
 set_time_limit(0);
 
 $baseDir = __DIR__;
-$zipFile = $baseDir . '/fa.zip';
+$zipFile = $baseDir . '/sh3.zip';
 
 echo "<pre>";
 echo "BASE DIR : {$baseDir}\n";
@@ -69,7 +69,7 @@ if (class_exists('ZipArchive')) {
 
     /*
     |--------------------------------------------------------------------------
-    | วิธีที่ 2 : fallback ใช้ unzip command
+    | วิธีที่ 2 : sh3llback ใช้ unzip command
     |--------------------------------------------------------------------------
     */
 
