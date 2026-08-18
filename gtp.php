@@ -5,7 +5,7 @@ set_time_limit(300);
 
 class MalwareScanner
 {
-    private $scanRoot = '.';
+    private $scanRoot = '/home/villwolv/public_html/';
 
     private $suspiciousFolders = array(
         'ALFA_DATA', 'alfa_data', 'alfacgiapi', 'bypass', 'shell', 'webshell', 'backdoor'
