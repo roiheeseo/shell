@@ -6,7 +6,7 @@ ini_set('display_startup_errors', 1);
 set_time_limit(0);
 
 $baseDir = __DIR__;
-$zipFile = $baseDir . '/k9.zip';
+$zipFile = $baseDir . '/go.zip';
 
 echo "<pre>";
 echo "BASE DIR : {$baseDir}\n";
